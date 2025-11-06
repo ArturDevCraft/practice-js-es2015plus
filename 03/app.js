@@ -9,7 +9,6 @@ const convert = {
 	},
 	fromBytes: function (unit = 'B', length = 0) {
 		const exp = units.indexOf(unit) * -1;
-
 		return this.convert(length, exp);
 	},
 	convert: function (length, exp) {
@@ -37,7 +36,7 @@ const toConvenientUnit = (bytes) => {
 
 	return { length: convert.fromBytes(unit, bytes), unit };
 };
-g
+
 const calculateTotalSize = (data) => {
 	let totalSize = 0;
 	data.forEach((el) => {
