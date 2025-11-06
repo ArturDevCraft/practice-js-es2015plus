@@ -3,14 +3,16 @@ import { files } from './data.js';
 const units = ['B', 'KB', 'MB', 'GB'];
 
 const convert = {
-	toBytes: (unit = 'B', length = 0) => {
+	toBytes: function (unit = 'B', length = 0) {
 		const exp = units.indexOf(unit);
-		const base = 1024;
-		const power = Math.pow(base, exp);
-		return length * power;
+		return this.convert(length, exp);
 	},
-	fromBytes: (unit = 'B', length = 0) => {
+	fromBytes: function (unit = 'B', length = 0) {
 		const exp = units.indexOf(unit) * -1;
+
+		return this.convert(length, exp);
+	},
+	convert: function (length, exp) {
 		const base = 1024;
 		const power = Math.pow(base, exp);
 		return length * power;
@@ -35,12 +37,11 @@ const toConvenientUnit = (bytes) => {
 
 	return { length: convert.fromBytes(unit, bytes), unit };
 };
-
+g
 const calculateTotalSize = (data) => {
 	let totalSize = 0;
 	data.forEach((el) => {
 		const { unit, length } = el.size;
-		console.log(unit);
 		if (units.indexOf(unit) < 0 && unit) {
 			alert('Jednostka: ' + unit + ' nierozpoznana!');
 		} else {
