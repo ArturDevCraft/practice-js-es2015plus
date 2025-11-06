@@ -26,4 +26,11 @@ export const files = [
 			unit: 'GB',
 		},
 	},
+	{
+		name: 'img5.jpg',
+		size: {
+			length: 2.9,
+			unit: 'T',
+		},
+	},
 ];
