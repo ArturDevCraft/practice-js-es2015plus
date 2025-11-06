@@ -1,12 +1,12 @@
 const getCart = () => {
 	const cartItems = [...document.getElementsByClassName('cart__quantity')];
-	const arr = [];
-	cartItems.forEach((el) => {
-		arr.push({
+
+	const arr = cartItems.map((el) => {
+		return {
 			name: el.innerText,
 			qty: el.value,
 			price: el.dataset.price,
-		});
+		};
 	});
 
 	return arr;
